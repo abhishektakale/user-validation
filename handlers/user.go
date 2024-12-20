@@ -15,6 +15,10 @@ type UserHandler struct {
 
 // NewUserHandler creates a new instance of UserHandler
 func NewUserHandler(v *validator.Validate) *UserHandler {
+	if v == nil {
+		panic("validator instance cannot be nil")
+	}
+
 	return &UserHandler{Validator: v}
 }
 
