@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"coditas-task/models"
 	"net/http"
+	"user-validation/models"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
@@ -10,7 +10,7 @@ import (
 
 // UserHandler defines the handler with a validator instance
 type UserHandler struct {
-	Validator *validator.Validate
+	validator *validator.Validate
 }
 
 // NewUserHandler creates a new instance of UserHandler
@@ -19,7 +19,7 @@ func NewUserHandler(v *validator.Validate) *UserHandler {
 		panic("validator instance cannot be nil")
 	}
 
-	return &UserHandler{Validator: v}
+	return &UserHandler{validator: v}
 }
 
 // CreateUser handles the POST request for creating a new user
@@ -30,7 +30,7 @@ func (h *UserHandler) CreateUser(c *gin.Context) {
 		return
 	}
 
-	if err := h.Validator.Struct(user); err != nil {
+	if err := h.validator.Struct(user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}

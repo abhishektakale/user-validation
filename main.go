@@ -3,9 +3,9 @@ package main
 import (
 	"log"
 
-	"coditas-task/handlers"
-	"coditas-task/middleware"
-	"coditas-task/validators" // Import validators package
+	"user-validation/handlers"
+	"user-validation/middleware"
+	"user-validation/validators" // Import validators package
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"

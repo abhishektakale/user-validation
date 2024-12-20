@@ -1,4 +1,4 @@
-module coditas-task
+module user-validation
 
 go 1.23.4
 

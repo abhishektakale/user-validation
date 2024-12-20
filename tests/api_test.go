@@ -2,13 +2,13 @@ package tests
 
 import (
 	"bytes"
-	"coditas-task/handlers"
-	"coditas-task/validators"
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"os"
 	"testing"
+	"user-validation/handlers"
+	"user-validation/validators"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"

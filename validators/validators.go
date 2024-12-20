@@ -2,14 +2,15 @@ package validators
 
 import (
 	"regexp"
+	"strings"
 
 	"github.com/go-playground/validator/v10"
 )
 
 // PAN symbol validator: regex to match the format (XXXXX1234X)
 func PANSymbol(fl validator.FieldLevel) bool {
-	pan := fl.Field().String()
-	r := regexp.MustCompile(`^[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}$`)
+	pan := strings.ToUpper(fl.Field().String())
+	r := regexp.MustCompile(`^[A-Z]{5}[0-9]{4}[A-Z]{1}$`)
 	return r.MatchString(pan)
 }
 
