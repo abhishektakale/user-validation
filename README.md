@@ -70,13 +70,25 @@ This is a simple Go API built using the Gin framework. The API performs validati
 - **mobile**: A string representing the 10-digit mobile number (required).
 - **email**: A string representing the email address (required).
 
+```bash
+curl -X POST http://localhost:8080/user \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "John Doe",
+    "pan": "ABCDE1234F",
+    "mobile": "9876543210",
+    "email": "john.doe@example.com"
+  }'
+
+```
+
 #### Response
 
 - **Success (200 OK)**:
 
 ```
 {
-  "message": "Successfully processed the request"
+  "message": "User created successfully"
 }
 ```
 
@@ -84,7 +96,7 @@ This is a simple Go API built using the Gin framework. The API performs validati
 
 ```
 {
-  "error": "Validation failed: ..."
+  "error": "..."
 }
 ```
 
